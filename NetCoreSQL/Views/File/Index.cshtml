@@ -1,0 +1,27 @@
+﻿@model List<FileShareData>
+@{
+    ViewData["Title"] = "ShowAllFiles";
+}
+
+<h1>ShowAllFiles</h1>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>FileName</th>
+            <th>FileSize</th>
+            <th>ModifiedOn</th>
+            <th>Download</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var data in Model)
+        {
+            <tr>
+                <td>@data.FileName</td>
+                <td>@data.Size</td>
+                <td>@data.LastModified</td>
+                <td> <a href="/File/Download?fileName=@data.FileName">Download</a> </td>
+            </tr>
+        }
+    </tbody>
+</table>
